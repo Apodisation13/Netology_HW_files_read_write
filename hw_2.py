@@ -1,4 +1,4 @@
-from cook_book import cook_book
+from cook_book import cook_book_init
 
 
 def get_shop_list_by_dishes(dishes: list, person_count: int, cook: dict):
@@ -20,8 +20,8 @@ def get_shop_list_by_dishes(dishes: list, person_count: int, cook: dict):
     print(d)
 
 
-get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2, cook_book)
-get_shop_list_by_dishes(["Омлет", "Фахитос"], 3, cook_book)
+get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2, cook_book_init())
+get_shop_list_by_dishes(["Омлет", "Фахитос"], 3, cook_book_init())
 # для этой комбинации повторяется помидор, поэтому его вышло 12: 2*3 + 2*3
-get_shop_list_by_dishes(['Утка по-пекински', 'Омлетт'], 2, cook_book)
+get_shop_list_by_dishes(['Утка по-пекински', 'Омлетт'], 2, cook_book_init())
 # утку посчитает, а во втором элементе ошибка
