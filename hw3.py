@@ -1,22 +1,22 @@
 def files_writer():
     data = []
-    file_number = 1
-    while file_number <= 3:
-        with open(f'file{file_number}.txt') as f:
-            file_name = f'file{file_number}.txt'
-            # print(file_name)
-            data.append([len(f.readlines()), file_number, file_name])
-        file_number += 1
+    i = 1
+    while i <= 3:
+        file_name = f'file{i}.txt'
+        with open(file_name) as f:
+            lines = f.readlines()
+            data.append([len(lines), i, file_name, lines])
+        i += 1
     data.sort()
     # print(data)
     with open("output_file.txt", "w") as out:
         for each in data:
-            with open(f'file{each[1]}.txt') as fi:
-                out.write(f'file{each[1]}.txt\n')
-                out.write(str(each[0]) + "\n")
-                for line in fi:
-                    out.write(line)
-                out.write("\n")
+            out.write(f'file{each[1]}.txt\n')
+            out.write(str(each[0]) + "\n")
+            for line in each[3]:
+                out.write(line)
+            out.write("\n")
+    print("Done, check output_file")
 
 
 files_writer()
